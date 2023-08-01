@@ -14,7 +14,7 @@ import org.bson.Document;
 public class MongoDBConnection {
     
         
-    public void connection(String collections, Document document){
+    public void connectionUpdate(String collections, Document document){
         String uri = "mongodb+srv://jmsanmartin:12345@managmentsystem.kklzuz1.mongodb.net/?retryWrites=true&w=majority";
         String db = "SchoolManagmentSystem";
         try(MongoClient mongoClient = MongoClients.create(uri)){

@@ -14,7 +14,7 @@ import ec.edu.espe.ShoppStereo.model.Stereo;
  */
 public class StereoController {
     
-   public void deleteSpeaker(Stereo stereo) {
+   public void deleteSpeaker(Professor professor) {
         MongoDBConnection db = new MongoDBConnection();
         db.connection("SpeakerInventory");
         MongoCollection<Document> speakerCollection = db.getCollection();
@@ -23,6 +23,24 @@ public class StereoController {
         speakerCollection.deleteMany(filter);
         System.out.println("Document with id " + stereo.getId() + " deleted successfully.");
    }
+   
+   public static void insertProfessor(Professor professor){
+        
+        
+        Document document = new Document();
+            document.append("id", mouse.getId());
+            document.append("model", mouse.getModel());
+            document.append("weigth", mouse.getWeigth());
+            document.append("color", mouse.getColor());
+            document.append("sensorType", mouse.getSensorType());
+            document.append("rgbLeds", mouse.getRgbLeds());
+        
+        MongoDBConnection mongoDbConnection = new MongoDBConnection();
+        mongoDbConnection.connection("Mouse", document);    
+        
+    
+        
+    }
    
     public static String countSpeaker(MongoCollection<Document> collection) {
       try {
